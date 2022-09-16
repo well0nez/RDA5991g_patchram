@@ -11,7 +11,7 @@
 #include <linux/types.h>
 
 #include "rda_common.h"
-#include "rda5991e.h"
+#include "rda5991g.h"
 
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof(a[0]))
 
