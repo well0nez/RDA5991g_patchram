@@ -99,7 +99,7 @@ int bt_get_version(unsigned int *version)
 	return ret;
 }
 
-int bt_rda5991e_setup_flow_ctl(int fd)
+int bt_rda5991g_setup_flow_ctl(int fd)
 {
 	unsigned int i, num_send;
 	for (i = 0; i < ARRAY_SIZE(rda_flow_ctl); i++)
@@ -147,7 +147,7 @@ int bt_setup_uart(int fd, unsigned int version, int baud_rate)
 	switch (version)
 	{
 		case WLAN_VERSION_91_G:
-			bt_rda5991e_setup_flow_ctl(fd);
+			bt_rda5991g_setup_flow_ctl(fd);
 			break;
 
 		default:
