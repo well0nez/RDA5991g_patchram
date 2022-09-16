@@ -295,7 +295,7 @@ int bt_init(int fd, unsigned int version, int baud_rate)
 	int ctl_fd = open(BT_CTRL, O_RDWR);
 	switch (version)
 	{
-		case WLAN_VERSION_91_E:
+		case WLAN_VERSION_91_G:
 			bt_uart_write_array(fd, RDA5991e_PSK_rf, sizeof(RDA5991e_PSK_rf) / sizeof(RDA5991e_PSK_rf[0]), 0);
 			usleep(5000);
 			ioctl(ctl_fd, RDA_BT_DC_CAL_IOCTL_FIX_5991_LNA_GAIN);
