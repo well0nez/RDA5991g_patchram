@@ -146,7 +146,7 @@ int bt_setup_uart(int fd, unsigned int version, int baud_rate)
 
 	switch (version)
 	{
-		case WLAN_VERSION_91_E:
+		case WLAN_VERSION_91_G:
 			bt_rda5991e_setup_flow_ctl(fd);
 			break;
 
@@ -274,7 +274,7 @@ int bt_rda_change_baudrate(int fd, unsigned int version, int baud_rate)
 	memcpy(&uart_setting, uart_setting_change_baud_rate, ARRAY_SIZE(uart_setting_change_baud_rate));
 	switch (version)
 	{
-		case WLAN_VERSION_91_E:
+		case WLAN_VERSION_91_G:
 			uart_setting[5] = baud & 0xff;
 			uart_setting[6] = (baud >> 8) & 0xff;
 			uart_setting[7] = (baud >> 16) & 0xff;
