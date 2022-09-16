@@ -243,7 +243,7 @@ void bt_write_pskey(int fd,unsigned char id, const unsigned char *data,unsigned 
 
 void bt_patch_write(int fd)
 {
-	bt_uart_write_array(fd, RDA5991e_PSKEY_MISC, ARRAY_SIZE(RDA5991e_PSKEY_MISC), 0);
+	bt_uart_write_array(fd, RDA5991g_PSKEY_MISC, ARRAY_SIZE(RDA5991g_PSKEY_MISC), 0);
 	bt_write_pskey(fd, 0x35, rdabt_pskey_hostwake, sizeof(rdabt_pskey_hostwake));
 	usleep(500);
 	bt_write_pskey(fd, 0x21, rdabt_pskey_sleep, sizeof(rdabt_pskey_sleep));
@@ -252,8 +252,8 @@ void bt_patch_write(int fd)
 	usleep(500);
 	bt_write_pskey(fd,0x24, rdabt_pskey_rf_setting, sizeof(rdabt_pskey_rf_setting));
 	usleep(5000);
-	bt_uart_write_array(fd, RDA5991e_PATCH, ARRAY_SIZE(RDA5991e_PATCH), 0);
-	bt_uart_write_array(fd, RDA5991e_NO_TXRX_PATCH, ARRAY_SIZE(RDA5991e_NO_TXRX_PATCH), 0);
+	bt_uart_write_array(fd, RDA5991g_PATCH, ARRAY_SIZE(RDA5991g_PATCH), 0);
+	bt_uart_write_array(fd, RDA5991g_NO_TXRX_PATCH, ARRAY_SIZE(RDA5991g_NO_TXRX_PATCH), 0);
 	usleep(5000);
 }
 
@@ -296,7 +296,7 @@ int bt_init(int fd, unsigned int version, int baud_rate)
 	switch (version)
 	{
 		case WLAN_VERSION_91_G:
-			bt_uart_write_array(fd, RDA5991e_PSK_rf, sizeof(RDA5991e_PSK_rf) / sizeof(RDA5991e_PSK_rf[0]), 0);
+			bt_uart_write_array(fd, RDA5991g_PSK_rf, sizeof(RDA5991g_PSK_rf) / sizeof(RDA5991g_PSK_rf[0]), 0);
 			usleep(5000);
 			ioctl(ctl_fd, RDA_BT_DC_CAL_IOCTL_FIX_5991_LNA_GAIN);
 			bt_write_address(fd, ctl_fd);
