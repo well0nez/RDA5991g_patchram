@@ -1,4 +1,4 @@
-## RDA5991e BT init program
+## RDA5991g BT init program
 
 Based on the code from Orange PI i96
 
